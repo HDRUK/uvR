@@ -1,3 +1,7 @@
+## so we can load the perl/sh script in the next step
+
+data(sysdata, envir=environment())
+
 ## download JAXA daily file
 
 JAXA_download <-function(date, satellite, UVRtype){
