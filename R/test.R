@@ -1,4 +1,5 @@
-test<-function(){
+test<-function(i){
 
-  "hell0"
+  paste(i)
+
 }
