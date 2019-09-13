@@ -1,6 +1,6 @@
 # subset to uk and set lat and long
 
-JAXAprocessdaily<-function(latitudeN, latitudeS, longitudeW, longitudeE){
+JAXA_process<-function(latitudeN, latitudeS, longitudeW, longitudeE){
 
   library(ggplot2)
   library(ggmap)

@@ -1,6 +1,6 @@
 ## download JAXA daily file
 
-JAXAdownloaddaily <-function(date, satellite, UVRtype){
+JAXA_download <-function(date, satellite, UVRtype){
   dir.create("rawdata")
   date<-gsub("-","", date)
       FTP <- paste0("ftp://apollo.eorc.jaxa.jp/pub/JASMES/Global_05km/", UVRtype, "/daily/", substring(date,1,6), "/")
