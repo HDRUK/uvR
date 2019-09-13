@@ -1,5 +1,6 @@
 
 JAXA_convert<-function(){
+
 system('
 
 mkdir convert
@@ -15,4 +16,5 @@ perl ../perl/JAXAconvertdaily.pl < "$f" > ../convert/$f.txt
 echo "Extracting $f..."
 rm "$f"
 done')
+
 }
