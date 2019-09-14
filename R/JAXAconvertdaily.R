@@ -1,6 +1,12 @@
 
 JAXA_convert<-function(){
 
+dir.create("perl")
+URL      <- "https://raw.githubusercontent.com/markocherrie/uvR/master/perl/JAXAconvertdaily.pl"
+destfile <- "perl/JAXAconvertdaily.pl"
+download.file(URL, destfile)
+
+
 system('
 
 mkdir convert
