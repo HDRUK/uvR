@@ -17,7 +17,7 @@ change.files <- function(file)
   mydata2<-subset(mydata, Latitude<=latitudeN & Latitude>=latitudeS, select=c(Latitude, 0:ncol(mydata)))
   mydata2$Latitude.1<-NULL
   mdata <- melt(mydata2, id=c("Latitude"))
-  write.csv(mdata, row.names=FALSE, "convert/plot2.csv")
+  write.csv(mdata, row.names=FALSE, "convert/temp.csv")
   mydata3<-read.csv("convert/temp.csv")
   mydata3$variable<-ifelse(mydata3$variable>180, -360+ mydata3$variable, mydata3$variable)
   colnames(mydata3) <- c("Latitude", "Longitude", "UV")
