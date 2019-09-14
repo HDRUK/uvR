@@ -1,6 +1,6 @@
 ## download JAXA daily file
 
-JAXAdownloadmonthly <-function(yearmonth, satellite, UVRtype){
+JAXA_downloadM <-function(yearmonth, satellite, UVRtype){
   dir.create("rawdata")
   tryCatch(
     {
