@@ -17,6 +17,7 @@ change.files <- function(file)
   latsub<-subset(original, Latitude<=latitudeN & Latitude>=latitudeS, select=c(Latitude, 0:ncol(original)))
   latsub$Latitude.1<-NULL
   latsublong <- melt(latsub, id=c("Latitude"))
+  latsublong <- as.numeric(as.character(latsublong$variable))
   latsublong$variable<-ifelse(latsublong$variable>180, -360+ latsublong$variable, latsublong$variable)
   colnames(latsublong) <- c("Latitude", "Longitude", "UV")
   latlongsublong<-subset(latsublong, Longitude>=longitudeW & Longitude<=longitudeE, select=c(Latitude, Longitude, UV))
