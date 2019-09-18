@@ -44,12 +44,12 @@ infiles<-list.files("subset", "-edit.txt*")
 interpolate<-function(file){
   latlongsublong <- read.csv(file = paste0("subset/",file), header = TRUE)
   latlongsublong <-na.omit(data)
-  #coordinates(latlongsublong) = ~Longitude + Latitude
+  coordinates(latlongsublong) = ~Longitude + Latitude
   x.range <- as.numeric(c(longitudeW, longitudeE))
   y.range <- as.numeric(c(latitudeS,latitudeN))
 
   # Create an empty grid where n is the total number of cells
-  grd              <- as.data.frame(spsample(data, "regular", n=90000))
+  grd              <- as.data.frame(spsample(latlongsublong, "regular", n=90000))
   names(grd)       <- c("X", "Y")
   coordinates(grd) <- c("X", "Y")
   gridded(grd)     <- TRUE  # Create SpatialPixel object
