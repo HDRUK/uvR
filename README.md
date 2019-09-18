@@ -22,9 +22,9 @@ devtools::install_github("markocherrie/uvR")
 library(uvR)
 ```
 
-* Download the two days from last week
+* Download two days of data
 ```{r download, include=F}
-dates<-seq(as.Date("2019-09-11"), as.Date("2019-09-12"), by="days")
+dates<-seq(as.Date("2019-07-10"), as.Date("2019-07-11"), by="days")
 dates<-gsub("-", "", dates)
 for(i in dates){
 uvR::JAXA_download(i, "MYD", "uvb")
@@ -36,7 +36,7 @@ uvR::JAXA_download(i, "MYD", "uvb")
 uvR::JAXA_convert()
 ```
 
-* Process the data for your area of interest
+* Process the data for your area of interest (takes a while)
 ```{r process, include=F}
 uvR::JAXA_process(61,43,-11,2)
 ```
@@ -60,16 +60,16 @@ multmerge = function(mypath){
   datalist = lapply(filenames, function(x){read.csv(file=x,header=T)})
   Reduce(function(x,y) {merge(x,y)}, datalist)
 }
-# https://www.r-bloggers.com/merging-multiple-data-files-into-one-data-frame/
+# from: https://www.r-bloggers.com/merging-multiple-data-files-into-one-data-frame/
 
-mymergeddata = multmerge("extract/")
+mergedf = multmerge("extract/")
 
-mymergeddataLONG<-reshape(mymergeddata, varying=c(3:4), direction="long", idvar="NAME", sep="", timevar="date")
-mymergeddataLONG$date<-as.Date(substr(mymergeddataLONG$date, 8,15), format="%Y%m%d")
+mergedf<-reshape(mergedf, varying=c(3:4), direction="long", idvar="NAME", sep="", timevar="date")
+mergedf$date<-as.Date(substr(mergedf$date, 8,15), format="%Y%m%d")
 
 library(ggplot2)
 ## simple line chart in ggplot
-p<-ggplot(data=mymergeddataLONG, aes(x=date, y=MYD, group=NAME, color=NAME)) +
+p<-ggplot(data=mergedf, aes(x=date, y=MYD, group=NAME, color=NAME)) +
   geom_line() +
   geom_point() +
   labs(title="Mean daily UVB for Local Authorities in Scotland", x="Date" ,y="UVB (W/m2)") 
