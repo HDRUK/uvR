@@ -5,28 +5,24 @@ date: "18/09/2019"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(eval = FALSE, include = FALSE)
-```
-
-# Package is beta, only works on a mac
+## Package is beta and currently only works on a mac
 
 ## Instructions for use
 
-### Create a new project 
-### Create a folder called 'boundary' with the geography that you want your estimates by
+###1. Create a new R project 
+###2. Create a folder called 'boundary' with the geography that you want your estimates by
 
-### Install the package
+###3.  Install the package
 ```{r install, include=F}
 devtools::install_github("markocherrie/uvR")
 ```
 
-### Load the package
+###4. Load the package
 ```{r load, include=F}
 library(uvR)
 ```
 
-### Download the two days from last week
+###5. Download the two days from last week
 ```{r download, include=F}
 dates<-seq(as.Date("2019-09-11"), as.Date("2019-09-12"), by="days")
 dates<-gsub("-", "", dates)
@@ -35,28 +31,28 @@ uvR::JAXA_download(i, "MYD", "uvb")
 }
 ```
 
-### Convert that data to something usable
+###6. Convert that data to something usable
 ```{r convert, include=F}
 uvR::JAXA_convert()
 ```
 
-### Process the data for your area of interest
+###7. Process the data for your area of interest
 ```{r process, include=F}
 uvR::JAXA_process(61,43,-11,2)
 ```
 
-### Visualise the raster
+###8. Visualise the raster
 ```{r rstviz, include=F}
 rst<-raster(list.files("raster/", full.names = T)[1])
 plot(rst)
 ```
 
-# Get summary statistics for your chosen geography
+###9. Get summary statistics for your chosen geography
 ```{r extract, include=F}
 uvR::JAXA_extract("LA")
 ```
 
-# Visualise the output
+###10. Visualise the output
 
 ```{r summaryvisualise, include=F}
 multmerge = function(mypath){
