@@ -43,7 +43,7 @@ infiles<-list.files("subset", "-edit.txt*")
 # batch
 interpolate<-function(file){
   latlongsublong <- read.csv(file = paste0("subset/",file), header = TRUE)
-  latlongsublong <-na.omit(data)
+  latlongsublong <-na.omit(latlongsublong)
   coordinates(latlongsublong) = ~Longitude + Latitude
   x.range <- as.numeric(c(longitudeW, longitudeE))
   y.range <- as.numeric(c(latitudeS,latitudeN))
