@@ -7,22 +7,22 @@ output: html_document
 
 ## Package is beta and currently only works on a mac
 
-## Instructions for use
+## Work through
 
-###1. Create a new R project 
-###2. Create a folder called 'boundary' with the geography that you want your estimates by
+* Create a new R project 
+* Create a folder called 'boundary' with the geography that you want your estimates by
 
-###3.  Install the package
+*  Install the package
 ```{r install, include=F}
 devtools::install_github("markocherrie/uvR")
 ```
 
-###4. Load the package
+* Load the package
 ```{r load, include=F}
 library(uvR)
 ```
 
-###5. Download the two days from last week
+* Download the two days from last week
 ```{r download, include=F}
 dates<-seq(as.Date("2019-09-11"), as.Date("2019-09-12"), by="days")
 dates<-gsub("-", "", dates)
@@ -31,28 +31,28 @@ uvR::JAXA_download(i, "MYD", "uvb")
 }
 ```
 
-###6. Convert that data to something usable
+* Convert that data to something usable
 ```{r convert, include=F}
 uvR::JAXA_convert()
 ```
 
-###7. Process the data for your area of interest
+* Process the data for your area of interest
 ```{r process, include=F}
 uvR::JAXA_process(61,43,-11,2)
 ```
 
-###8. Visualise the raster
+* Visualise the raster
 ```{r rstviz, include=F}
 rst<-raster(list.files("raster/", full.names = T)[1])
 plot(rst)
 ```
 
-###9. Get summary statistics for your chosen geography
+* Get summary statistics for your chosen geography
 ```{r extract, include=F}
 uvR::JAXA_extract("LA")
 ```
 
-###10. Visualise the output
+* Visualise the output
 
 ```{r summaryvisualise, include=F}
 multmerge = function(mypath){
