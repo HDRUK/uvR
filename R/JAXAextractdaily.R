@@ -48,5 +48,13 @@ JAXA_extract<-function(boundary){
     file.remove(i)
     file.remove(paste0(i, ".aux.xml"))
   }
+
+  # clean up
+  system(paste0("rm -r subset"))
+  system(paste0("rm -r perl"))
+  system(paste0("rm -r raster"))
+  system(paste0("rm -r convert"))
+  system(paste0("rm -r rawdata"))
+
 }
 
