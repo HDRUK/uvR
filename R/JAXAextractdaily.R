@@ -43,10 +43,10 @@ JAXA_extract<-function(boundary){
     p@data <- data.frame(p@data, r.mean)
     q<-data.frame(p)
     write.csv(q, paste0("extract/", name,".csv"), row.names=F)
-    file.copy(rlist, "rasterrepository")
-    file.copy(paste0(rlist, ".aux.xml"), "rasterrepository")
-    file.remove(rlist)
-    file.remove(paste0(rlist, ".aux.xml"))
+    file.copy(i, "rasterrepository")
+    file.copy(paste0(i, ".aux.xml"), "rasterrepository")
+    file.remove(i)
+    file.remove(paste0(i, ".aux.xml"))
   }
 }
 
