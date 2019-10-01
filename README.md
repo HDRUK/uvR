@@ -7,14 +7,14 @@ output: html_document
 
 # uvR
 
-### The uvR Package is enable researchers analyse UVR data. The package is in beta and currently only works with mac OS.
+### The aim of the uvR package is to help researchers use and analyse UVR data in their studies. The package is in beta and currently only works with mac OS.
  
 ![](logo/hdruk.jpg)
 
 ### This work was supported by Health Data Research UK, an initiative funded by UK Research and Innovation, Department of Health and Social Care (England) and devolved administrations, and leading medical research charities. This work is part of HDR UK Scotland
 
 
-## Instructions for use
+### Instructions for use
 
 * Create a new R project 
 * Create a folder called 'boundary' with the geography that you want your UVR estimates by
