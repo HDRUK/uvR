@@ -1,11 +1,12 @@
+[![LICENCE](https://img.shields.io/github/license/HDRUK/uvR)](https://github.com/HDRUK/uvR/blob/master/LICENSE.md)
+[![Support](https://img.shields.io/badge/Supported%20By-HDR%20UK-blue)](https://hdruk.ac.uk)
 ---
 title: "README.md"
 author: "Mark Cherrie"
 date: "18/09/2019"
 output: html_document
 ---
-[![LICENCE](https://img.shields.io/github/license/HDRUK/uvR)](https://github.com/HDRUK/uvR/blob/master/LICENSE.md)
-[![Support](https://img.shields.io/badge/Supported%20By-HDR%20UK-blue)](https://hdruk.ac.uk)
+
 # uvR
 
 ### The aim of the uvR package is to help researchers use and analyse UVR data in their studies. The package is in beta and currently only works with mac OS.
